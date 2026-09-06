@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charSet="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Xin Lou | Academic Homepage</title>
+<meta name="description" content="Academic homepage for Xin Lou, Associate Professor at Singapore Institute of Technology, focused on trustworthy autonomous systems and AI security."/>
+<style>@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --muted: var(--foreground);
+  --line: #e2e6e2;
+  /* Section title options: forest #356448, blue #345e79, teal #236b68, burgundy #794353. */
+  --accent: #345e79;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 28px; }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65; letter-spacing: 0; }
+main { width: min(100% - 64px, 1040px); margin: 0 auto; }
+a { color: var(--foreground); text-decoration: none; text-underline-offset: 4px; }
+a:hover { text-decoration: underline; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { margin-bottom: 16px; font-family: Georgia, 'Times New Roman', serif; font-size: 52px; font-weight: 400; line-height: 1.15; }
+h2 { margin: 0; font-size: 22px; font-weight: 600; line-height: 1.45; }
+h3 { margin-bottom: 12px; font-size: 18px; font-weight: 600; line-height: 1.55; }
+.skip-link { position: absolute; top: -100px; padding: 10px; background: white; }
+.skip-link:focus { top: 0; }
+.site-header { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 24px 0; border-bottom: 2px solid var(--line); }
+.brand { color: var(--foreground); font-size: 18px; font-weight: 600; white-space: nowrap; }
+nav { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 16px; }
+nav a { color: var(--muted); }
+.profile { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 24px 56px; align-items: start; padding: 46px 0 32px; }
+.profile-copy { min-width: 0; }
+.appointment { margin-bottom: 12px; }
+.affiliation { margin-bottom: 16px; color: var(--muted); }
+.bio { margin-bottom: 0; color: var(--muted); }
+.portrait { display: block; width: 250px; max-width: 100%; height: auto; border-radius: 2px; }
+.contact { margin-top: 20px; font-size: 16px; }
+address { font-style: normal; min-width: 0; }
+address a { overflow-wrap: anywhere; }
+address p { color: var(--muted); margin: 10px 0 0; }
+.phone { color: var(--muted); }
+.section { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 30px; padding: 32px 0; border-top: 2px solid var(--line); }
+.section-content { min-width: 0; }
+.plain-list { margin: 0; padding-left: 18px; list-style: disc; }
+.plain-list li { padding-left: 3px; margin-bottom: 12px; }
+.plain-list li:last-child { margin-bottom: 0; }
+li::marker { color: var(--foreground); }
+.publication-list article { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 18px; padding-bottom: 24px; }
+.publication-list article:last-child { padding-bottom: 16px; }
+.paper-meta { display: flex; flex-direction: column; color: var(--muted); font-size: 16px; line-height: 1.7; }
+.paper-meta span:first-child { color: var(--foreground); }
+.publication-list h3 { margin-bottom: 5px; }
+.authors { color: var(--muted); font-size: 16px; margin-bottom: 4px; }
+.venue { color: var(--foreground); font-size: 16px; margin-bottom: 0; }
+.full-publications { margin-top: 8px; border-top: 2px solid var(--line); }
+summary { padding: 16px 0 0; cursor: pointer; color: var(--foreground); font-weight: 600; }
+summary span { color: var(--muted); font-size: 16px; font-weight: 400; }
+.full-publications h3 { margin: 26px 0 12px; }
+.full-publications ol { padding-left: 22px; margin-bottom: 0; list-style: decimal; }
+.full-publications li { padding-left: 4px; margin-bottom: 18px; }
+.publication-note { margin: 16px 0 0; color: var(--muted); font-size: 16px; }
+.member-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 28px; }
+.member-grid > div { padding: 12px 14px; border-left: 8px solid #f37021; font-size: 16px; }
+.member-grid > div:last-child { grid-column: 1 / -1; }
+.service-list > div + div { margin-top: 26px; }
+footer { display: flex; justify-content: space-between; border-top: 2px solid var(--line); padding: 20px 0 32px; color: var(--muted); font-size: 16px; }
+
+.section > h2 { color: var(--accent); }
+#name { color: var(--accent); }
+.award-highlight, #awards li { color: #b4232c; }
+strong.award-highlight { font-weight: 700; }
+#awards li { font-weight: 400; }
+.section > h2::before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 5px;
+  margin-bottom: 12px;
+  background: var(--accent);
+}
+
+@media (max-width: 760px) {
+  main { width: min(100% - 40px, 620px); }
+  .site-header { display: block; padding: 18px 0; }
+  nav { margin-top: 12px; gap: 8px 16px; }
+  .profile { grid-template-columns: minmax(0, 1fr) 180px; gap: 24px; padding-top: 32px; }
+  .portrait { width: 180px; }
+  h1 { font-size: 44px; }
+  .section { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
+}
+
+@media (max-width: 480px) {
+  .profile { grid-template-columns: minmax(0, 1fr) 130px; column-gap: 16px; }
+  .portrait { width: 130px; }
+  .profile-copy { display: contents; }
+  h1 { grid-column: 1; grid-row: 1; align-self: center; margin: 0; }
+  .portrait { grid-column: 2; grid-row: 1; }
+  .appointment, .affiliation, .bio { grid-column: 1 / -1; margin: 0; }
+  .contact { grid-column: 1 / -1; margin-top: 0; }
+  .publication-list article { grid-template-columns: 1fr; gap: 6px; }
+  .paper-meta { flex-direction: row; gap: 12px; }
+  .member-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body class="__variable_geist_19ysh9d __variable_geist_mono_1001rt9 antialiased">
+<main id="top">
+<a class="skip-link" href="#profile">Skip to content</a>
+<header class="site-header">
+<a class="brand" href="#top">Xin Lou</a>
+<nav aria-label="Primary navigation">
+<a href="#research">Research</a>
+<a href="#publications">Publications</a>
+<a href="#funding">Funding</a>
+<a href="#group">Members</a>
+<a href="#teaching">Teaching</a>
+<a href="#service">Service</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+<section class="profile" id="profile" aria-labelledby="name">
+<div class="profile-copy">
+<h1 id="name">Xin Lou</h1>
+<p class="appointment">Associate Professor<br/>Infocomm Technology Cluster, Singapore Institute of Technology</p>
+<p class="affiliation">Adjunct Senior Research Scientist, Illinois Advanced Research Center Singapore</p>
+<p class="bio">I received my PhD in Computer Science from City University of Hong Kong and my B.E. in Telecommunication Engineering from Sichuan University.</p>
+<address class="contact" id="contact">
+<a href="mailto:lou.xin@singaporetech.edu.sg">lou.xin@singaporetech.edu.sg</a>
+<p>
+<strong>SIT:</strong> E1-06-68, 1 Punggol Coast Road, Singapore 828608<br/>
+<a class="phone" href="tel:+6565925037">(+65) 6592 5037</a>
+</p>
+<p>
+<strong>IARCS:</strong> 1 Create Way, #14-02 Create Tower, Singapore 138602<br/>
+<a class="phone" href="tel:+6565917762">(+65) 6591 7762</a>
+</p>
+</address>
+</div>
+<img class="portrait" src="profile.jpg" alt="Xin Lou" width="277" height="429"/>
+</section>
+<section class="section" id="research">
+<h2>Research interests</h2>
+<ul class="plain-list">
+<li>Robust and trustworthy autonomous systems</li>
+<li>AI security in cyber-physical systems</li>
+<li>Embodied AI and autonomous intelligence</li>
+</ul>
+</section>
+<section class="section" id="publications">
+<h2>Selected publications</h2>
+<div class="section-content">
+<div class="publication-list">
+<article>
+<div class="paper-meta">
+<span>2026</span>
+<span>Journal</span>
+</div>
+<div>
+<h3>Resilient Path Tracking of Autonomous Driving under Few-shot Action Space Attacks</h3>
+<p class="authors">Yuting Wu, Xin Lou, Pengfei Zhou, Rui Tan, Zbigniew T. Kalbarczyk, Ravishankar K. Iyer</p>
+<p class="venue">ACM Transactions on Cyber-Physical Systems</p>
+</div>
+</article>
+<article>
+<div class="paper-meta">
+<span>2026</span>
+<span>Journal</span>
+</div>
+<div>
+<h3>Invisible Adversarial Stripes on Traffic Sign: Threat and Defense for Autonomous Vehicles</h3>
+<p class="authors">Dongfang Guo, Yuting Wu, Pengfei Zhou, Xin Lou, Rui Tan</p>
+<p class="venue">ACM Transactions on Sensor Networks</p>
+</div>
+</article>
+<article>
+<div class="paper-meta">
+<span>2026</span>
+<span>Conference</span>
+</div>
+<div>
+<h3>TsallisPGD: Adaptive Gradient Weighting for Adversarial Attacks on Semantic Segmentation</h3>
+<p class="authors">Alexander Matyasko, Xin Lou, Indriyati Atmosukarto, Wei Zhang</p>
+<p class="venue">IEEE/INNS International Joint Conference on Neural Networks (IJCNN)</p>
+</div>
+</article>
+<article>
+<div class="paper-meta">
+<span>2026</span>
+<span>Conference</span>
+</div>
+<div>
+<h3>Drift-Aware Online Anomaly Detection in Smart Buildings via Temporal Variational Autoencoder Gradient Profile</h3>
+<p class="authors">C. Tran Le, Heng Chuan Tan, Zhen Wei Ng, Zbigniew Kalbarczyk, David K. Y. Yau, Daisuke Mashima, Xin Lou</p>
+<p class="venue">The 17th ACM International Conference on Future and Sustainable Energy Systems</p>
+</div>
+</article>
+<article>
+<div class="paper-meta">
+<span>2025</span>
+<span>Conference</span>
+</div>
+<div>
+<h3>Adversarially Trained Dynamic Ensemble: A Moving Target Defense Strategy for Robust Semantic Segmentation in Autonomous Vehicles</h3>
+<p class="authors">Yanghui Mo, Xin Lou, Mageshwaran Muthusamy, Wei Zhang, Indriyati Atmosukarto, Xunpei Sun</p>
+<p class="venue">IEEE Conference on Artificial Intelligence, <strong class="award-highlight">Best Paper Award</strong>
+</p>
+</div>
+</article>
+<article>
+<div class="paper-meta">
+<span>2024</span>
+<span>Conference</span>
+</div>
+<div>
+<h3>Invisible Optical Adversarial Stripes on Traffic Sign against Autonomous Vehicles</h3>
+<p class="authors">Dongfang Guo, Yuting Wu, Yimin Dai, Pengfei Zhou, Xin Lou, Rui Tan</p>
+<p class="venue">ACM MobiSys, acceptance ratio 43/263</p>
+</div>
+</article>
+<article>
+<div class="paper-meta">
+<span>2024</span>
+<span>Conference</span>
+</div>
+<div>
+<h3>CRaaS: Cloud-based Smart Grid Cyber Range for Scalable Cybersecurity Experiments and Training</h3>
+<p class="authors">Bernard Chng, Bennet Ng, Muhammad M. Roomi, Daisuke Mashima, Xin Lou</p>
+<p class="venue">IEEE SmartGridComm</p>
+</div>
+</article>
+</div>
+<details class="full-publications">
+<summary>Full publication list <span>(<!-- -->43<!-- -->)</span>
+</summary>
+<p class="publication-note">* Students or research staff who worked directly with me on the publication.</p>
+<h3>Conference papers</h3>
+<ol>
+<li>Alexander Matyasko*, Xin Lou, Indriyati Atmosukarto, Wei Zhang, TsallisPGD: Adaptive Gradient Weighting for Adversarial Attacks on Semantic Segmentation, IEEE/INNS International Joint Conference on Neural Networks (IJCNN), 2026.</li>
+<li>CTRAN LE, Heng Chuan Tan, Zhen Wei Ng, Zbigniew Kalbarczyk, David K. Y. Yau, Daisuke Mashima, Xin Lou, Drift-Aware Online Anomaly Detection in Smart Buildings via Temporal Variational Autoencoder Gradient Profile, The 17th ACM International Conference on Future and Sustainable Energy Systems (ACM e-Energy), 2026.</li>
+<li>Sara Sameer, Wei Zhang, Dhivya Dharshini Kannan, Xin Lou, Yulin Gao, Terence Goh, Qingyu Yan, Pace: Physics-Aware Attentive Temporal Convolutional Network for Battery Health Estimation, ACM/SIGAPP Symposium On Applied Computing (SAC), 2026.</li>
+<li>Zhiying Yang, Fang Liu, Wei Zhang, Xin Lou, Malcolm Yoke Hean Low, Boon Ping Gan, LLM-Upgraded Graph Reinforcement Learning for Carbon-Aware Flexible Job Shop Scheduling in Smart Manufacturing, ACM/SIGAPP Symposium On Applied Computing (SAC), 2026.</li>
+<li>Yanghui Mo*, Xin Lou, Mageshwaran Muthusamy*, Wei Zhang, Indriyati Atmosukarto and Xunpei Sun, Adversarially Trained Dynamic Ensemble: A Moving Target Defense Strategy for Robust Semantic Segmentation in Autonomous Vehicles, IEEE Conference on Artificial Intelligence (IEEE CAI), 2025. <strong class="award-highlight">Best Paper Award</strong>.</li>
+<li>Yunxiang Zhou*, Xin Lou, Ying He, Wei Zhang and Indriyati Atmosukarto, NormFusion: Real-Time Test-Time Adaptation for LiDAR Segmentation under Corruption, IEEE Conference on Artificial Intelligence (IEEE CAI), 2025.</li>
+<li>Sara Sameer, Wei Zhang, Xin Lou, et al., GiNet: Integrating Sequential and Context-Aware Learning for Battery Capacity Prediction, IEEE Vehicular Technology Conference (VTC), 2025.</li>
+<li>Dongfang Guo*, Yuting Wu*, Yimin Dai, Pengfei Zhou, Xin Lou, Rui Tan, Demo: Invisible Adversarial Stripes against Traffic Sign Recognition in Autonomous Driving, The 22nd ACM Conference on Embedded Networked Sensor Systems (ACM SenSys), 2024. <span class="award-highlight">Best Demo Award</span>.</li>
+<li>Carmen Cheh*, Aaron Tay*, Zhen Wei Ng*, Binbin Chen, Xin Lou, Zaki Masood*, and David Yau, Water Supply System Dataset: Non-Invasive Sensor Data for Smart Water Pumps, Proceedings of 7th International Workshop on Data: Data Acquisition and Analysis in the Era of AI (DATA) in BuildSys, 2024.</li>
+<li>Zaki Masood*, Carmen Cheh*, Zhen Wei Ng*, Binbin Chen, Xin Lou, David Yau, Optimizing Operation of Automated Waste Collection Systems in Smart Communities, The 22nd International Conference on Smart City, 2024.</li>
+<li>Bernard Chng, Bennet Ng, Muhammad M. Roomi, Daisuke Mashima, Xin Lou, CRaaS: Cloud-based Smart Grid Cyber Range for Scalable Cybersecurity Experiments and Training, IEEE SmartGridComm, 2024.</li>
+<li>Carmen Cheh*, Justin Albrethsen, Zhen Wei Ng*, Binbin Chen, Xin Lou, Zaki Masood*, David Yau, Water Pump Operation Optimization under Dynamic Market and Consumer Behaviour, The 15th ACM International Conference on Future and Sustainable Energy Systems (ACM e-Energy), 2024.</li>
+<li>Dongfang Guo, Yuting Wu, Yimin Dai, Pengfei Zhou, Xin Lou, Rui Tan, Invisible Optical Adversarial Stripes on Traffic Sign against Autonomous Vehicles, The 22nd ACM International Conference on Mobile Systems, Applications, and Services (MobiSys), 2024. Acceptance ratio: 43/263.</li>
+<li>Yuting Wu*, Pengfei Zhou, Xin Lou, Rui Tan, Zbigniew T. Kalbarczyk, Ravishankar K. Iyer, Susceptibility of Autonomous Driving Agents to Learning-Based Action-Space Attacks, The 9th Workshop on Safety and Security in Intelligent Vehicles (SSIV), co-located with 53rd IEEE/IFIP DSN, 2023.</li>
+<li>Yuting Wu*, Xin Lou, Pengfei Zhou, Rui Tan, Zbigniew T. Kalbarczyk, Ravishankar K. Iyer, Effects of Learning-Based Action-Space Attacks on Autonomous Driving Agents, The 14th ACM/IEEE International Conference on Cyber-Physical Systems (ICCPS) WIP, CPS-IoT Week 2023.</li>
+<li>Hanyu Zheng*, Zhenwei Ng*, Pengfei Zhou*, Xin Lou, David Yau, Marianne Winslett, Detecting Cyber Attacks in Smart Grids with Massive Unlabeled Sensing Data, IEEE SmartGridComm, 2022.</li>
+<li>Yuqing Zhu*, Sridhar Adepu, Ying Yang*, Kushagra Dixit and Xin Lou, Adversarial Attacks and Mitigations on Scene Segmentation of Autonomous Vehicles, The 8th Workshop On The Security Of Industrial Control Systems &amp; Of Cyber-Physical Systems (CyberICPS), in conjunction with ESORICS, 2022.</li>
+<li>Weili Yan*, Xin Lou, David Yau, Ying Yang*, Ramadan Saifuddin*, Marianne Winslett, A Stealthier False Data Injection Attack against the Power Grid, IEEE SmartGridComm, 2021.</li>
+<li>Ramadan Saifuddin*, David Yau, Xin Lou, Reliability-Security Trade-Off for Distributed Reactive Power Control in Transactive Grid, IEEE SmartGridComm, 2021.</li>
+<li>Ying Yang*, Xin Lou, Binbin Chen, Marianne Winslett, and Zbigniew Kalbarczyk, Identifying Failing Point Machines from Sensor-Free Train System Logs, IEEE International Conference on Big Data (BigData), 2020.</li>
+<li>Xin Lou, Cuong Tran*, Rui Tan, David Yau, and Zbigniew Kalbarczyk, Assessing and Mitigating Impact of Time Delay Attack: A Case Study for Power Grid Frequency Control, The 10th ACM/IEEE International Conference on Cyber-Physical Systems (ICCPS), CPS-IoT Week 2019.</li>
+<li>Xin Lou, Cuong Tran*, David K.Y. Yau, Rui Tan, Hongwei Ng, Tom Zhengjia Fu, Marianne Winslett, Learning-Based Time Delay Attack Characterization for Cyber-Physical Systems, IEEE SmartGridComm 2019 Workshop: AI in Energy Systems, invited paper, 2019.</li>
+<li>Linshan Jiang*, Rui Tan, Xin Lou, and Guosheng Lin, On Lightweight Privacy-Preserving Collaborative Learning for Internet-of-Things Objects, The 4th ACM/IEEE International Conference on Internet of Things Design and Implementation (IoTDI), CPS-IoT Week 2019.</li>
+<li>Linshan Jiang*, Xin Lou, Rui Tan, and Jun Zhao, Differentially Private Collaborative Learning for the IoT Edge, The 2nd International Workshop on Crowd Intelligence for Smart Cities: Technology and Applications (CICS), co-located with EWSN 2019.</li>
+<li>Chaojie Gu, Rui Tan, Xin Lou, and Dusit Niyato, One-Hop Out-of-Band Control Planes for Low-Power Multi-Hop Wireless Networks, IEEE Infocom, 2018.</li>
+<li>Xin Lou, Rui Tan, David Yau and Peng Cheng, Cost of Differential Privacy in Demand Reporting for Smart Grid Economic Dispatch, IEEE Infocom, 2017.</li>
+<li>Xin Lou and Chee Wei Tan, Convex Relaxation and Decomposition in Large Resistive Power Networks with Energy Storage, IEEE SmartGridComm, 2013.</li>
+<li>Chee Wei Tan, Desmond W. H. Cai, and Xin Lou, DC Optimal Power Flow: Uniqueness and Algorithms, IEEE SmartGridComm 2012 Workshop-Architectures and Modeling for the Smart Grid, invited paper, 2012.</li>
+<li>Chris Y. T. Ma, David K. Y. Yau, Xin Lou, and Nageswara S. V. Rao, Extended Abstract: Markov Game Analysis for Attack and Defense of Power Networks, International Conference on Applied Cryptography and Network Security (ACNS), industrial track, 2012.</li>
+</ol>
+<h3>Journal papers</h3>
+<ol>
+<li>Yuting Wu*, Xin Lou, Pengfei Zhou, Rui Tan, Zbigniew T. Kalbarczyk, Ravishankar K. Iyer, Resilient Path Tracking of Autonomous Driving under Few-shot Action Space Attacks, ACM Transactions on Cyber-Physical Systems, 10(2), 1-29, 2026.</li>
+<li>Dongfang Guo*, Yuting Wu*, Pengfei Zhou, Xin Lou, Rui Tan, Invisible Adversarial Stripes on Traffic Sign: Threat and Defense for Autonomous Vehicles, ACM Transactions on Sensor Networks, 22(1), 1-32, 2026.</li>
+<li>Prakhar Ganes*, Yao Chen, Xin Lou, Mohammad Ali Khan, Yin Yang, Deming Chen, Marianne Winslett, Hassan Sajjad, and Preslav Nakov, Compressing Large-Scale Transformer-Based Models: A Case Study on BERT, Transactions of the Association for Computational Linguistics, 9, 1061-1080, 2021.</li>
+<li>Prakhar Ganesh*, Xin Lou, Yao Chen, David K.Y. Yau, Rui Tan, Demin Chen, Marianne Winslett, Learning-based Simultaneous Detection and Characterization of Time Delay Attack in Cyber-Physical Systems, IEEE Transactions on Smart Grid, 12(4): 3581-3593, 2021.</li>
+<li>Linshan Jiang*, Rui Tan, Xin Lou, and Guosheng Lin, On Lightweight Privacy-Preserving Collaborative Learning for Internet of Things by Independent Random Projections, ACM Transactions on Internet of Things, 2(2), 2021.</li>
+<li>Xin Lou, Cuong Tran*, Rui Tan, and David Yau, Zbigniew Kalbarczyk, Ambarish Banerjee*, Prakhar Ganesh*, Assessing and Mitigating Impact of Time Delay Attack: Case Studies for Power Grid Controls, IEEE Journal on Selected Areas in Communications, 38(1):141-155, 2020.</li>
+<li>Xin Lou, David Yau, Rui Tan, and Peng Cheng, Cost and Pricing of Differential Privacy in Demand Reporting for Smart Grids, IEEE Transactions on Network Science and Engineering, 7(3), 2037-2051, 2020.</li>
+<li>Chaojie Gu, Rui Tan, and Xin Lou, One-hop Out-of-band Control Planes for Multi-hop Wireless Sensor Networks, ACM Transactions on Sensor Networks, 15(4), 2019.</li>
+<li>Xin Lou and Chee Wei Tan, Optimization Decomposition of Resistive Power Networks with Energy Storage, IEEE Journal on Selected Areas in Communications, 32(7):1371-1385, 2014.</li>
+<li>Xin Lou, Hongyi Yao, Chee Wei Tan and Jianping Wang, VANDER: Efficient Cooperative Watchdog Monitoring for Lossy Wireless Network Coding, IEEE Transactions on Vehicular Technology, 64(2):702-713, 2015.</li>
+<li>Chee Wei Tan, Desmond W. H. Cai, and Xin Lou, Resistive Network Optimal Power Flow: Uniqueness and Algorithms, IEEE Transactions on Power Systems, 30(1): 263-273, 2015.</li>
+<li>Xin Lou, David K. Y. Yau, Hoang Hai Nguyen, and Binbin Chen, Profit-Optimal and Stability-Aware Load Curtailment in Smart Grids, IEEE Transactions on Smart Grid, 4(3):1411-1420, 2013.</li>
+<li>Chris Y. T. Ma, David K. Y. Yau, Xin Lou, and Nageswara S. V. Rao, Markov Game Analysis for Attack-Defense of Power Networks under Possible Misinformation, IEEE Transactions on Power Systems, 28(2):1676-1686, 2013.</li>
+<li>Chee Wei Tan, Desmond W. H. Cai, and Xin Lou, Distributed Algorithms in Resistive Network Optimal Power Flow, invited paper, IEEE Communications Society Multimedia Communications Technical Committee E-Letter, 7(8), 2012.</li>
+</ol>
+</details>
+</div>
+</section>
+<section class="section" id="funding">
+<h2>Research funding</h2>
+<ul class="plain-list">
+<li>Human-Centric AI Perception for Autonomous Vehicles: Bridging Trust and Safety (~S$219k), PI, MOE AcRF Tier 1 Grant, September 2025 to August 2027</li>
+<li>Holistic Moving Target Defence for Autonomous Driving Perception Stage 1a and 1b (up to S$4M), Lead PI at SIT, AI Singapore, July 2023 to June 2026</li>
+<li>Transforming Job-Shop Scheduling for Large-Scale and Complex Industrial Manufacturing Applications (S$959,920), Co-PI, MTC Individual Research Grant, April 2024 to March 2027</li>
+<li>Cost-Effective CO2 Reduction Reaction Electrocatalyst Discovery for Carbon Capture and Utilization with Advanced Machine Learning (S$150,000), Co-PI, MOE AcRF Tier 1 Grant, December 2023 to November 2025</li>
+<li>Fostering Self-Empowerment in Kidney Disease Patients through Food Choice Mapping: A Pilot Study (S$94,400), Co-PI, SIT Ignition Grant, February 2025 to January 2027</li>
+<li>Estate-IQ: an Advanced AI System for Enabling Smart HDB Estate Services (S$4.98M), Co-PI, Ministry of National Development, July 2021 to December 2024</li>
+<li>Attack-Resilient AI-Empowered Autonomous Cyber-Physical Systems (S$500k), Co-PI, National Satellite of Excellence in Trustworthy Software Systems, October 2020 to June 2023</li>
+<li>Anomaly Detection in Power System Control Centers and State Estimation (S$1.5M), Co-PI, Energy Market Authority of Singapore, October 2019 to March 2022</li>
+</ul>
+</section>
+<section class="section" id="awards">
+<h2>Awards</h2>
+<ul class="plain-list">
+<li>SIT Teaching Excellence Award in AY2024, 2026</li>
+<li>SIT Fellowship (Research), 2026</li>
+<li>Best Paper Award, IEEE Conference on Artificial Intelligence, 2025</li>
+<li>Best Demo Award, ACM SenSys, 2024</li>
+</ul>
+</section>
+<section class="section" id="group">
+<h2>Members</h2>
+<div class="section-content">
+<h3>Current members</h3>
+<div class="member-grid">
+<div>Dr. Menglin Li (Research Fellow @ SIT, 2026-now)</div>
+<div>Mr. Parth Vyas (Doctorate Student @ SIT, 2026-now)</div>
+<div>Mr. Shengchao See (Research Engineer @ SIT, 2025-now)</div>
+<div>Dr. Alexander Matyasko (Research Fellow @ SIT, 2024-now)</div>
+<div>SIT Undergraduate Students: Daryl Low (2025-now), D Yang Eng (2025-now), Wenyuan Yik (2026)</div>
+</div>
+<h3>Former members</h3>
+<ul class="plain-list">
+<li>Student helpers at SIT: Yuki Kong (2026), Mageshwaran (2024), Ashsyahid (2025), Hong Xiang Ng (2024-2025)</li>
+<li>Dr. Yanghui Mo, Research Fellow at SIT, 2024-2026</li>
+<li>Dr. Carmen Cheh, Research Scientist at IARCS, 2022-2025; now Senior Research Scientist at IARCS, Singapore</li>
+<li>Mr. Zhen Wei Ng, Software Engineer at IARCS, 2022-2025; now Senior Software Engineer at IARCS, Singapore</li>
+<li>Mr. Aaron Tay, Software Engineer at IARCS, 2023-2024</li>
+<li>Mr. Qifeng Tan, Software Engineer at ADSC, 2022-2023; now with CSA, Singapore</li>
+<li>Dr. Pengfei Zhou, Research Scientist at ADSC, 2021-2022; now faculty at the University of Pittsburgh, USA</li>
+<li>Mr. Hanyu Zeng, Intern from NUS, 2022/02-2022/07; now PhD student at the University of Pittsburgh, USA</li>
+<li>Dr. Ramadan Saifuddin, Postdoctoral Researcher at ADSC, 2020-2022; now with Newcastle University in Singapore</li>
+<li>Dr. Sridhar Adepu, Postdoctoral Researcher at ADSC, 2021; now faculty at the University of Bristol, UK</li>
+<li>Ms. Ying Yang, Research Engineer at ADSC, 2019-2021; Senior Research Engineer at ADSC, 2021; now with BIGO, Singapore</li>
+<li>Mr. Sixiang Wang, Intern from NUS, 2021/02-2021/05</li>
+<li>Ms. Shwetha, Intern from SUTD, 2021/06-2021/09</li>
+<li>Mr. Prakhar Ganesh, Research Engineer at ADSC, co-supervised with Dr. Yao Chen, 2019-2021; now with NUS for postgraduate study</li>
+<li>Dr. Weili Yan, Research Scientist at ADSC, 2019-2020</li>
+<li>Ms. Hui Wen Koh, Intern from SUTD, 2020/05-2020/09</li>
+<li>Mr. Yifan Zeng, Research Assistant at SUTD, co-supervised with Prof. David Yau, 2019-2020; former intern from NUS, 2019/07-2019/09; now with Shopee, Singapore</li>
+<li>Mr. Ambarish Banerjee, Intern from IIT, 2019/06-2019/08</li>
+<li>Mr. Cuong Tran, Research Assistant at SUTD, 2016-2018; now with VNPT, Vietnam</li>
+</ul>
+</div>
+</section>
+<section class="section" id="experience">
+<h2>Appointments</h2>
+<ul class="plain-list">
+<li>Associate Professor, Singapore Institute of Technology, Singapore, 2025-now</li>
+<li>Assistant Professor, Singapore Institute of Technology, Singapore, 2022-2025</li>
+<li>Senior Research Scientist, Illinois Advanced Research Center Singapore, Singapore, 2022-now</li>
+<li>Research Scientist, Illinois at Singapore, Singapore, 2019-2021</li>
+<li>Postdoctoral Researcher, Illinois at Singapore, Singapore, 2016-2018</li>
+<li>Research Assistant, City University of Hong Kong, Hong Kong SAR, 2012</li>
+<li>Research Engineer, Illinois at Singapore, Singapore, 2011</li>
+</ul>
+</section>
+<section class="section" id="teaching">
+<h2>Teaching</h2>
+<ul class="plain-list">
+<li>INF1006: Computer Networks, 2023-2026</li>
+<li>ICT1003/ICT1011: Computer Organization and Architecture, 2021-2024</li>
+<li>ICT1010: Computer Networks, 2022</li>
+<li>TLM3005: Digital Signal Processing Tutorial, 2022</li>
+</ul>
+</section>
+<section class="section" id="service">
+<h2>Professional service</h2>
+<div class="section-content service-list">
+<div>
+<h3>Conference Chair</h3>
+<ul class="plain-list">
+<li>Finance Chair, ACM e-Energy 2024</li>
+<li>Workshop Co-program Chair, IEEE SmartGridComm 2022 and 2023</li>
+<li>Organising Co-Chair, AIoTS 2021</li>
+<li>Publication and Registration Chair, IEEE ICDCS 2020</li>
+<li>Session Chair, IEEE SmartGridComm 2019, IEEE CAI 2025, AAAI 2026</li>
+</ul>
+</div>
+<div>
+<h3>TPC Member</h3>
+<ul class="plain-list">
+<li>ACM-IEEE MEMCODE, 2025</li>
+<li>IEEE ICC, 2024, 2025, 2027</li>
+<li>ACM e-Energy, 2023, 2024</li>
+<li>IEEE SmartGridComm, 2022-2026</li>
+<li>IEEE CIT, 2015-2018</li>
+<li>IEEE CPSCom, 2017</li>
+<li>IEEE FCST, 2017</li>
+<li>IEEE HPCC, 2018, 2022</li>
+<li>IEEE SmartCNS, 2019</li>
+<li>CTISC, 2020, 2022</li>
+<li>IMMS, 2018-2020, 2022</li>
+<li>IFIP Networking, 2022</li>
+</ul>
+</div>
+<div>
+<h3>Editor and Reviewer</h3>
+<ul class="plain-list">
+<li>Guest Editor, Network Special Issue on Cyber-Physical Systems Applications and Security</li>
+<li>IEEE LCN, 2022, 2023</li>
+<li>IEEE ICC, 2022, 2023</li>
+<li>IEEE Infocom, 2017-2021</li>
+<li>IEEE IWQoS, 2016-2018, 2021</li>
+<li>IEEE ISGT, 2018</li>
+<li>ICICS, 2019, 2020, 2022, 2023</li>
+<li>WiOpt, 2018</li>
+<li>IEEE SmartGridComm, 2013, 2019-2024</li>
+<li>ACM Computing Surveys</li>
+<li>IEEE Journal on Selected Areas in Communications</li>
+<li>IEEE Transactions on Information Forensics and Security, Smart Grid, Vehicular Technology, Communication, Mobile Computing, Network Science and Engineering, Industrial Informatics, Knowledge and Data Engineering, Dependable and Secure Computing, Reliability, Multimedia, Mobile Computing, Transportation Electrification</li>
+<li>IEEE Internet of Things Journal</li>
+<li>IEEE System Journal</li>
+<li>IEEE Access</li>
+<li>Nature Scientific Reports</li>
+<li>Elsevier Computer and Security</li>
+<li>IET Smart Grid</li>
+<li>IET Electronic Letters</li>
+</ul>
+</div>
+</div>
+</section>
+<footer>
+<span>Xin Lou</span>
+<a href="#top">Back to top</a>
+</footer>
+</main>
+</body>
+</html>
